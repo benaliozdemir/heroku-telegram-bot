@@ -1,7 +1,7 @@
 tradingview-ta
 requests
 bs4
-colorama
+colorama==0.4.4
 time
 telegram
 telebot
