@@ -1,5 +1,4 @@
-tradingview-ta 
-TA_Handler
+tradingview-ta
 requests
 bs4
 colorama
