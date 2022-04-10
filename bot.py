@@ -2,14 +2,11 @@
 from tradingview_ta import TA_Handler, Interval, Exchange
 import requests
 from bs4 import BeautifulSoup
-import colorama
-from colorama import Fore, Back, Style
 import time
 import requests
 from bs4 import BeautifulSoup
 # coding: utf-8;
 from tradingview_ta import TA_Handler, Interval, Exchange
-import colorama
 from colorama import Fore, Back, Style
 import time
 import telegram
@@ -34,8 +31,8 @@ token = "1001364876:AAFcONbKxMuw1Eo3HItNVjzIX5F-S-or1eY" #telegram token
 chat_id = "835942393" #telegram id
 ##############ROBOT BORA #################################################
 #TEST*TEST*TEST*TEST*TEST*TEST*
-token = "test:test-S-or1eY" #telegram token
-chat_id = "835942393" #telegram id
+#token = "test:test-S-or1eY" #telegram token
+#chat_id = "835942393" #telegram id
 ##########################################################################
 
 s = requests.Session()
@@ -53,7 +50,6 @@ bul1 = soup.findAll("span",{"id":"MainContent_LastPattern"})[0]
 bul2 = soup.findAll("span",{"id":"MainContent_LastSignal"})[0]
 bul3 = soup.findAll("span",{"id":"MainContent_LastClose"})[0]
 bul4 = soup.findAll("span",{"id":"MainContent_ChangePercent"})[0]
-print(Fore.YELLOW)
 print(" ",bul.text,end=" ",flush=True)
 print("#",bul1.text,end="",flush=True)
 print(" #",bul2.text,end=" #",flush=True)
@@ -140,10 +136,8 @@ r = s.get(link)
 soup = BeautifulSoup(r.content, "html.parser")
 bul = soup.findAll("div",{"id":"MainContent_ASPxRoundPanel2_ASPxCallbackPanel1_ChartTitle"})[0]
 bul1 = soup.findAll("div",{"id":"MainContent_ASPxRoundPanel2_ASPxCallbackPanel1_CandleStickofTheDay"})[0]
-print(Fore.GREEN)
 print(" ",bul.text,flush=True)
 print(" ",bul1.text,flush=True)
-print(Style.RESET_ALL)
 gununhissesi=(bul.text)+" "+(bul1.text)
 requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':835942393,'text': gununhissesi}).json()
 requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':763429881,'text': gununhissesi}).json()
@@ -278,9 +272,39 @@ requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), d
 
 # burda sembol listesi oluştur 
 
-sembol_list = ["ACSEL", "ADEL", "ADESE", "AEFES", "AFYON", "AGHOL", "AGYO", "AKBNK","AKCNS", "AKENR", "AKFGY","AKGRT", "AKMGY", "AKSA", "AKSEN", "AKSGY", "AKSUE","AKYHO","ALARK", "ALBRK", "ALCAR", "ALCTL","ALGYO", "ALKA", "ALKIM", "ALMAD", "ANELE","ANHYT", "ANSGR", "ARCLK", "ARDYZ","ARENA", "ARMDA","ARSAN", "ASELS","ASUZU", "ATAGY", "ATEKS", "ATLAS", "ATSYH", "AVGYO", "AVHOL","AVOD","AVTUR", "AYCES", "AYEN", "AYES", "AYGAZ", "BAGFS", "BAKAB", "BALAT", "BANVT","BASCM", "BAYRK","BERA", "BEYAZ", "BIMAS", "BIZIM", "BJKAS", "BLCYT","BNTAS", "BOSSA", "BRISA", "BRKO", "BRKSN","BRMEN", "BRSAN", "BRYAT", "BSOKE","BTCIM", "BUCIM", "BURCE", "BURVA", "CASA", "CCOLA", "CELHA", "CEMAS","CEMTS","CEOEM", "CIMSA", "CLEBI", "CMBTN", "CMENT", "COSMO", "CRDFA", "CRFSA", "CUSAN","DAGHL", "DAGI","DARDL", "DENGE", "DERHL", "DERIM", "DESA", "DESPC", "DEVA","DGATE", "DGGYO", "DGKLB", "DIRIT", "DITAS", "DMSAS", "DNISI", "DOAS","DOBUR", "DOCO", "DOGUB", "DOHOL", "DOKTA", "DURDO", "DYOBY", "DZGYO","ECILC","ECZYT","EKGYO", "EKIZ", "EMKEL", "ENJSA","ENKAI", "EPLAS", "ERBOS", "EREGL", "ERSU", "ESCOM", "ESEN","ETILR", "ETYAT", "EUHOL", "EUKYO", "EUYO", "FENER", "FLAP", "FMIZP","FONET", "FORMT", "FRIGO", "FROTO", "GARAN", "GARFA", "GEDIK", "GEDZA","GEREL", "GLBMD", "GLRYH", "GLYHO", "GOLTS", "GOODY", "GOZDE","GRNYO", "GSDDE","GSDHO", "GSRAY", "GUBRF", "HALKB", "HATEK", "HDFGS", "HEKTS","HLGYO","HUBVC", "HURGZ", "ICBCT", "IDEAS", "IEYHO","IHEVA", "IHGZT","IHLAS", "IHLGM", "IHYAY", "INDES", "INFO", "INTEM", "INVEO", "IPEKE","ISBIR", "ISCTR", "ISDMR", "ISFIN", "ISGSY", "ISGYO", "ISKPL", "ISMEN", "ISYAT","ITTFH", "IZFAS","IZMDC", "IZTAR", "JANTS","KAPLM", "KAREL", "KARSN", "KARTN","KATMR", "KCHOL", "KENT", "KERVN", "KERVT","KFEIN", "KLGYO", "KLMSN", "KLNMA","KNFRT", "KONTR", "KONYA", "KORDS", "KOZAA", "KOZAL", "KRDMA", "KRDMB","KRDMD","KRGYO", "KRONT", "KRSTL", "KRTEK", "KRVGD", "KSTUR", "KUTPO", "KUYAS", "LIDFA","LINK", "LKMNH","LOGO", "LUKSK", "MAALT", "MAKTK", "MARKA", "MARTI", "MAVI","MEGAP", "MEPET", "MERIT", "MERKO", "METRO","METUR","MGROS", "MIPAZ", "MMCAS","MNDRS", "MPARK","MRGYO", "MRSHL", "MSGYO", "MTRYO","MZHLD", "NATEN","NETAS","NIBAS", "NTHOL", "NUGYO", "NUHCM", "ODAS", "OLMK", "ORGE", "ORMA", "OSMEN","OSTIM", "OTKAR", "OYAKC",
-"OYAYO", "OYLUM", "OZBAL", "OZGYO","OZKGY", "OZRDN","PAGYO", "PAMEL", "PAPIL", "PARSN", "PEGYO", "PEKGY", "PENGD","PETKM", "PETUN","PGSUS", "PINSU", "PKART", "PKENT", "PNSUT", "POLHO", "POLTK", "PRKAB","PRKME","PRZMA", "PSDTC","QNBFB", "QNBFL", "RALYH", "RAYSG", "RHEAG", "RODRG", "ROYAL","RTALB", "RYGYO", "RYSAS", "SAFKR", "SAHOL", "SAMAT","SANEL", "SANFM", "SANKO","SARKY", "SASA", "SAYAS", "SEKFK", "SEKUR", "SELEC", "SELGD", "SERVE", "SEYKM","SILVR","SISE", "SKBNK", "SKTAS", "SMART", "SNGYO", "SNKRN","SNPAM", "SODSN","SOKM", "SONME", "SRVGY", "SUMAS", "TACTR", "TATGD", "TAVHL", "TBORG", "TCELL","TDGYO", "TEKTU", "TGSAS", "THYAO", "TIRE", "TKFEN", "TKNSA", "TKURU", "TLMAN","TMPOL", "TMSN", "TOASO", "TRCAS", "TRGYO", "TRILC", "TSGYO", "TSKB", "TSPOR","TTKOM", "TTRAK", "TUCLK", "TUKAS","TUPRS", "TURGG", "TURSG", "UFUK", "ULAS","ULKER", "ULUSE", "ULUUN", "UMPAS", "USAK", "UTPYA", "UZERB","VAKBN","VAKFN", "VAKKO", "VANGD", "VERTU", "VERUS", "VESBE", "VESTL", "VKFYO", "VKGYO","VKING", "YAPRK", "YATAS","YAYLA", "YBTAS", "YESIL", "YGGYO", "YGYO", "YKBNK","YKGYO", "YKSLN", "YONGA", "YUNSA", "ZOREN"]
-
+sembol_list = ["ACSEL", "ADEL", "ADESE", "AEFES", "AFYON", "AGHOL", "AGYO", "AKBNK","AKCNS", "AKENR", "AKFGY",
+               "AKGRT", "AKMGY", "AKSA", "AKSEN", "AKSGY", "AKSUE", "AKYHO","ALARK", "ALBRK", "ALCAR", "ALCTL",
+               "ALGYO", "ALKA", "ALKIM", "ALMAD", "ANELE","ANHYT", "ANSGR", "ARCLK", "ARDYZ", "ARENA", "ARMDA",
+               "ARSAN", "ARZUM", "ASELS","ASUZU", "ATAGY", "ATEKS", "ATLAS", "ATSYH", "AVGYO", "AVHOL", "AVISA",
+               "AVOD","AVTUR", "AYCES", "AYEN", "AYES", "AYGAZ", "BAGFS", "BAKAB", "BALAT", "BANVT","BASCM", "BAYRK",
+               "BERA", "BEYAZ", "BFREN", "BIMAS", "BIZIM", "BJKAS", "BLCYT","BNTAS", "BOSSA", "BRISA", "BRKO", "BRKSN",
+               "BRMEN", "BRSAN", "BRYAT", "BSOKE","BTCIM", "BUCIM", "BURCE", "BURVA", "CASA", "CCOLA", "CELHA", "CEMAS",
+               "CEMTS","CEOEM", "CIMSA", "CLEBI", "CMBTN", "CMENT", "COSMO", "CRDFA", "CRFSA", "CUSAN","DAGHL", "DAGI",
+               "DARDL", "DENGE", "DERHL", "DERIM", "DESA", "DESPC", "DEVA","DGATE", "DGGYO", "DGKLB", "DIRIT", "DITAS",
+               "DJISTf", "DMSAS", "DNISI", "DOAS","DOBUR", "DOCO", "DOGUB", "DOHOL", "DOKTA", "DURDO", "DYOBY", "DZGYO",
+               "ECILC","ECZYT", "EDIP", "EGEEN", "EGGUB", "EGPRO", "EGSER", "EKGYO", "EKIZ", "EMKEL","EMNIS", "ENJSA",
+               "ENKAI", "EPLAS", "ERBOS", "EREGL", "ERSU", "ESCOM", "ESEN","ETILR", "ETYAT", "EUHOL", "EUKYO", "EUYO",
+               "FADE", "FENER", "FLAP", "FMIZP","FONET", "FORMT", "FRIGO", "FROTO", "GARAN", "GARFA", "GEDIK", "GEDZA",
+               "GENTS","GEREL", "GLBMD", "GLDTRf", "GLRYH", "GLYHO", "GMSTRf", "GOLTS", "GOODY", "GOZDE","GRNYO", "GSDDE",
+               "GSDHO", "GSRAY", "GUBRF", "HALKB", "HATEK", "HDFGS", "HEKTS","HLGYO", "HUBVC", "HURGZ", "ICBCT", "IDEAS",
+               "IDGYO", "IEYHO", "IHEVA", "IHGZT","IHLAS", "IHLGM", "IHYAY", "INDES", "INFO", "INTEM", "INVEO", "IPEKE",
+               "ISBIR","ISBTR", "ISCTR", "ISDMR", "ISFIN", "ISGSY", "ISGYO", "ISKPL", "ISMEN", "ISYAT","ITTFH", "IZFAS",
+               "IZMDC", "IZTAR", "JANTS", "KAPLM", "KAREL", "KARSN", "KARTN","KATMR", "KCHOL", "KENT", "KERVN", "KERVT",
+               "KFEIN", "KLGYO", "KLMSN", "KLNMA","KNFRT", "KONTR", "KONYA", "KORDS", "KOZAA", "KOZAL", "KRDMA", "KRDMB",
+               "KRDMD","KRGYO", "KRONT", "KRSTL", "KRTEK", "KRVGD", "KSTUR", "KUTPO", "KUYAS", "LIDFA","LINK", "LKMNH",
+               "LOGO", "LUKSK", "MAALT", "MAKTK", "MARKA", "MARTI", "MAVI","MEGAP", "MEPET", "MERIT", "MERKO", "METRO",
+               "METUR", "MGROS", "MIPAZ", "MMCAS","MNDRS", "MPARK", "MRGYO", "MRSHL", "MSGYO", "MTRYO", "MZHLD", "NATEN",
+               "NETAS","NIBAS", "NTHOL", "NUGYO", "NUHCM", "ODAS", "OLMIP", "ORGE", "ORMA", "OSMEN","OSTIM", "OTKAR", "OYAKC",
+               "OYAYO", "OYLUM", "OZBAL", "OZGYO", "OZKGY", "OZRDN","PAGYO", "PAMEL", "PAPIL", "PARSN", "PEGYO", "PEKGY", "PENGD",
+               "PETKM", "PETUN","PGSUS", "PINSU", "PKART", "PKENT", "PNSUT", "POLHO", "POLTK", "PRKAB", "PRKME","PRZMA", "PSDTC",
+               "QNBFB", "QNBFL", "RALYH", "RAYSG", "RHEAG", "RODRG", "ROYAL","RTALB", "RYGYO", "RYSAS", "SAFKR", "SAHOL", "SAMAT",
+               "SANEL", "SANFM", "SANKO","SARKY", "SASA", "SAYAS", "SEKFK", "SEKUR", "SELEC", "SELGD", "SERVE", "SEYKM","SILVR",
+               "SISE", "SKBNK", "SKTAS", "SMART", "SNGYO", "SNKRN", "SNPAM", "SODSN","SOKM", "SONME", "SRVGY", "SUMAS", "TACTR",
+               "TATGD", "TAVHL", "TBORG", "TCELL","TDGYO", "TEKTU", "TGSAS", "THYAO", "TIRE", "TKFEN", "TKNSA", "TKURU", "TLMAN",
+               "TMPOL", "TMSN", "TOASO", "TRCAS", "TRGYO", "TRILC", "TSGYO", "TSKB", "TSPOR","TTKOM", "TTRAK", "TUCLK", "TUKAS",
+               "TUPRS", "TURGG", "TURSG", "UFUK", "ULAS","ULKER", "ULUSE", "ULUUN", "UMPAS", "USAK", "USDTRf", "UTPYA", "UZERB",
+               "VAKBN","VAKFN", "VAKKO", "VANGD", "VERTU", "VERUS", "VESBE", "VESTL", "VKFYO", "VKGYO","VKING", "YAPRK", "YATAS",
+               "YAYLA", "YBTAS", "YESIL", "YGGYO", "YGYO", "YKBNK","YKGYO", "YKSLN", "YONGA", "YUNSA", "ZOREN"]
 
 for sembol in sembol_list:
     strsembol=sembol
@@ -307,7 +331,6 @@ for sembol in sembol_list:
     acilis = (str((sembol.get_analysis().indicators)["open"]))
 
     if str(bul1).find('BOĞA') != -1 and str(close) > str(fiyat):
-        print(Back.RED)
         print("",bul.text,end=" ")
         print("#",bul1.text,end="")
         print(" #",bul2.text,end=" #")
@@ -365,7 +388,6 @@ for sembol in sembol_list:
         
     
     if str(bul1).find('BOĞA') != -1 and str(close) < str(fiyat):
-        print(Back.GREEN)
         print("",bul.text,end=" ")
         print("#",bul1.text,end="")
         print(" #",bul2.text,end=" #")
@@ -422,7 +444,6 @@ for sembol in sembol_list:
 
         
     if str(bul1).find('AYI') != -1 and str(close) > str(fiyat):
-        print(Back.RED)
         print("",bul.text,end=" ")
         print("#",bul1.text,end="")
         print(" #",bul2.text,end=" #")
@@ -479,7 +500,6 @@ for sembol in sembol_list:
 
         
     if str(bul1).find('AYI') != -1 and str(close) < str(fiyat):
-        print(Back.GREEN)
         print("",bul.text,end=" ")
         print("#",bul1.text,end="")
         print(" #",bul2.text,end=" #")
