@@ -1,13 +1,4 @@
-# coding: utf-8;
 from tradingview_ta import TA_Handler, Interval, Exchange
-import requests
-from bs4 import BeautifulSoup
-import time
-import requests
-from bs4 import BeautifulSoup
-# coding: utf-8;
-from tradingview_ta import TA_Handler, Interval, Exchange
-from colorama import Fore, Back, Style
 import time
 import telegram
 import telebot
