@@ -1,9 +1,6 @@
 tradingview-ta
-requests
 bs4
-time
+requests
 telegram
 telebot
 pytelegramBOTAPI
-pandas
-json
