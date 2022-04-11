@@ -185,8 +185,9 @@ for tr in trler:
     requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':974587203,'text': cezali}).json()
     requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':1713364622,'text': cezali}).json()
     requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':1777156557,'text': cezali}).json()
+"""
     fiyat = "https://tr.tradingview.com/symbols/BIST-"+ sembol +"/ideas/"
-    f = s.get(fiyat)
+    f s.get(fiyat)
     foup = BeautifulSoup(f.content, "html.parser")
     fiyat = foup.findAll("p",{"class":"tv-widget-idea__description-row tv-widget-idea__description-row--clamped js-widget-idea__popup"})[0]
     print(sembol,":",fiyat.text.strip().replace("ÅŸ","ş").replace("Ã¼","ü").replace("Ã¶","ö").replace("Ä±","ı").replace("Ã§","ç").replace("ÄŸ","ğ"))
@@ -211,7 +212,7 @@ for tr in trler:
     requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':974587203,'text': yorumlayici}).json()
     requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':1713364622,'text': yorumlayici}).json()
     requests.post(url='https://api.telegram.org/bot{0}/sendMessage'.format(token), data={'chat_id':1777156557,'text': yorumlayici}).json()
-
+"""
 print("BİST YÜKSELENLER")
 fiyat = "https://finans.mynet.com/borsa/seansistatistigi/"   
 f = s.get(fiyat)
